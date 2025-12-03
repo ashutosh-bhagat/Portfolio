@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ashutosh Bhagat | ML Engineer Portfolio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts: Space Grotesk for headings, Inter for body -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Space Grotesk", "sans-serif"],
+            },
+            colors: {
+              background: "#050505", // Deep black
+              surface: "#121212",
+              accent: "#22c55e", // Professional Success Green
+              textMain: "#fafafa",
+              textMuted: "#a3a3a3",
+            },
+            backgroundImage: {
+              "grid-pattern":
+                "linear-gradient(to right, #1f1f1f 1px, transparent 1px), linear-gradient(to bottom, #1f1f1f 1px, transparent 1px)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Minimal Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050505;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      /* Grid Background Effect */
+      .bg-grid {
+        background-size: 40px 40px;
+        mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          10%,
+          black,
+          90%,
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          5%,
+          black,
+          95%,
+          transparent
+        );
+      }
+
+      /* Custom Input Autofill fix for dark mode */
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      textarea:-webkit-autofill,
+      textarea:-webkit-autofill:hover,
+      textarea:-webkit-autofill:focus {
+        -webkit-text-fill-color: #fafafa;
+        -webkit-box-shadow: 0 0 0px 1000px #050505 inset;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+
+      /* Blink Animation */
+      .blink {
+        animation: blinker 1.5s linear infinite;
+      }
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-textMain font-sans antialiased selection:bg-white selection:text-black"
+  >
+    <!-- Navigation (Minimal) -->
+    <nav
+      class="fixed w-full z-50 bg-background/80 backdrop-blur-md border-b border-white/5 transition-all duration-300"
+    >
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <a
+              href="#"
+              class="text-xl font-display font-bold tracking-tight hover:text-white transition-colors"
+            >
+              ASHUTOSH<span class="text-accent">.</span>
+            </a>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:block">
+            <div class="flex items-center space-x-10">
+              <a
+                href="#about"
+                class="text-sm font-medium text-textMuted hover:text-white transition-colors"
+                >About</a
+              >
+              <a
+                href="#stack"
+                class="text-sm font-medium text-textMuted hover:text-white transition-colors"
+                >Stack</a
+              >
+              <a
+                href="#projects"
+                class="text-sm font-medium text-textMuted hover:text-white transition-colors"
+                >Work</a
+              >
+              <a
+                href="#contact"
+                class="px-5 py-2.5 text-sm font-medium border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300"
+                >Let's Talk</a
+              >
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="flex md:hidden">
+            <button
+              type="button"
+              onclick="toggleMenu()"
+              class="text-white hover:text-gray-300 focus:outline-none p-2"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        class="hidden md:hidden bg-background border-b border-white/10 absolute w-full z-50"
+        id="mobile-menu"
+      >
+        <div class="px-4 pt-4 pb-6 space-y-3 shadow-2xl">
+          <a
+            href="#about"
+            onclick="toggleMenu()"
+            class="block px-3 py-2 text-base font-medium text-textMuted hover:text-white"
+            >About</a
+          >
+          <a
+            href="#stack"
+            onclick="toggleMenu()"
+            class="block px-3 py-2 text-base font-medium text-textMuted hover:text-white"
+            >Stack</a
+          >
+          <a
+            href="#projects"
+            onclick="toggleMenu()"
+            class="block px-3 py-2 text-base font-medium text-textMuted hover:text-white"
+            >Work</a
+          >
+          <a
+            href="#contact"
+            onclick="toggleMenu()"
+            class="block px-3 py-2 text-base font-medium text-accent"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="min-h-[90vh] flex items-center relative pt-24 lg:pt-28 overflow-hidden"
+    >
+      <!-- Spotlight Background (Shifted slightly right) -->
+      <div
+        class="absolute top-[-20%] right-0 w-[600px] h-[600px] bg-white/5 blur-[120px] rounded-full pointer-events-none"
+      ></div>
+      <!-- Grid Background -->
+      <div
+        class="absolute inset-0 bg-grid-pattern bg-grid opacity-[0.05] z-0 pointer-events-none"
+      ></div>
+
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10 w-full">
+        <div class="max-w-4xl">
+          <!-- Availability Badge -->
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-accent mb-6"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-accent blink"></span>
+            Available for hire
+          </div>
+
+          <!-- Main Title (Name) -->
+          <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.05] tracking-tight mb-6"
+          >
+            ashutosh<br />bhagat<span class="text-accent">.</span>
+          </h1>
+
+          <!-- Subtitle / Value Prop -->
+          <p class="text-base md:text-lg text-textMuted leading-relaxed mb-8">
+            Machine Learning Engineer & Full Stack Developer.<br
+              class="hidden md:block"
+            />
+            Specializing in
+            <strong class="text-white">Supervised Learning</strong> models and
+            high-performance
+            <strong class="text-white">FastAPI</strong> backends.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row justify-start gap-3">
+            <a
+              href="#projects"
+              class="px-7 py-3.5 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors w-full sm:w-auto text-center"
+            >
+              View My Work
+            </a>
+            <a
+              href="./Ashutosh Bhagat.pdf"
+              class="px-7 py-3.5 bg-transparent border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 transition-colors w-full sm:w-auto flex justify-center items-center gap-2 group"
+            >
+              Download Resume
+              <i
+                class="fas fa-arrow-down group-hover:translate-y-1 transition-transform"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subtle Bottom Gradient -->
+      <div
+        class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent pointer-events-none"
+      ></div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-10 left-10 animate-bounce">
+        <a
+          href="#about"
+          class="text-textMuted hover:text-white transition-colors p-2"
+        >
+          <i class="fas fa-arrow-down text-xl opacity-50"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- About / Introduction -->
+    <section id="about" class="py-16 bg-background border-t border-white/5">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1">
+            <h2 class="text-3xl font-display font-bold mb-6">About Me</h2>
+            <div class="space-y-4 text-textMuted leading-relaxed text-lg">
+              <p>
+                I started my tech journey in the creative field as a Graphic
+                Designer, cultivating an eye for detail and user experience.
+              </p>
+              <p>
+                Driven by curiosity, I transitioned into engineering, finding my
+                true passion in
+                <strong class="text-white">Machine Learning</strong>. I thrive
+                on the logic of algorithms and the challenge of optimizing
+                predictive models.
+              </p>
+              <p>
+                To bridge the gap between data and users, I mastered
+                <strong class="text-white">FastAPI</strong> and
+                <strong class="text-white">JavaScript</strong>. This allows me to not
+                just build models, but deploy them as scalable, real-world
+                applications.
+              </p>
+            </div>
+
+            <!-- <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="p-4 bg-surface border border-white/5 rounded-xl">
+                <p class="text-3xl font-display font-bold text-white">08+</p>
+                <p class="text-xs uppercase tracking-[0.2em] text-textMuted">
+                  ML services shipped
+                </p>
+              </div>
+              <div class="p-4 bg-surface border border-white/5 rounded-xl">
+                <p class="text-3xl font-display font-bold text-white">30%</p>
+                <p class="text-xs uppercase tracking-[0.2em] text-textMuted">
+                  Latency reduction
+                </p>
+              </div>
+              <div class="p-4 bg-surface border border-white/5 rounded-xl">
+                <p class="text-3xl font-display font-bold text-white">500k+</p>
+                <p class="text-xs uppercase tracking-[0.2em] text-textMuted">
+                  Monthly predictions served
+                </p>
+              </div>
+            </div> -->
+
+            <!-- <div
+              class="mt-6 bg-surface border border-white/5 rounded-2xl p-6 space-y-4"
+            >
+              <p
+                class="text-sm font-bold uppercase tracking-widest text-textMuted"
+              >
+                How I collaborate
+              </p>
+              <ul class="space-y-3 text-textMuted text-base">
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span
+                  >Translate product or GTM goals into measurable ML success
+                  metrics for business partners.
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span
+                  >Ship infra that keeps FastAPI services observable, secure,
+                  and ready for scale.
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span
+                  >Coach junior engineers/designers on experimentation velocity
+                  and stakeholder updates.
+                </li>
+              </ul>
+            </div> -->
+
+            <div class="mt-6 pt-6 border-t border-white/5">
+              <h3
+                class="text-sm font-bold uppercase tracking-widest text-textMuted mb-3"
+              >
+                Active Community Member
+              </h3>
+              <div
+                class="flex items-center gap-4 p-4 bg-surface rounded-lg border border-white/5"
+              >
+                <div class="p-3 bg-white/5 rounded-lg text-accent">
+                  
+                    <img src="./aim logo.png" alt="A.I.M. Club" class="w-9 h-9">
+                  
+                </div>
+                <div>
+                  <h4 class="text-white font-medium">The A.I.M. Club</h4>
+                  <p class="text-sm text-textMuted">
+                    Vice President and Contributor 
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-surface rounded-lg border border-white/5"
+              >
+                <div class="p-3 bg-white/5 rounded-lg text-accent">
+                  <i class="fab fa-aws text-2xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-white font-medium">AWS UG Community Vadodara</h4>
+                  <p class="text-sm text-textMuted">
+                    Contributor and Graphic Designer
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+
+          <div class="order-1 md:order-2 flex justify-center md:justify-end">
+            <!-- Clean Profile Image -->
+            <div
+              class="w-640 h-800 md:w-800 md:h-960 bg-surface rounded-lg overflow-hidden border border-white/10 shadow-2xl group relative flex items-center justify-center"
+            >
+              <img src="./1000084543.jpg" alt="Ashutosh Bhagat" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack (Clean & Scannable) -->
+    <section id="stack" class="py-16 bg-surface">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="mb-10 md:text-center">
+          <h2 class="text-3xl font-display font-bold mb-4">
+            Technical Proficiency
+          </h2>
+          <p class="text-textMuted">A breakdown of my engineering toolkit.</p>
+        </div>
+
+        <!-- Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <!-- Core -->
+          <div
+            class="bg-background/80 p-7 rounded-2xl border border-white/5 hover:border-white/15 transition-colors h-full flex flex-col"
+          >
+            <div
+              class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-accent mb-6"
+            >
+              <i class="fas fa-brain text-xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-4">
+              AI & Machine Learning
+            </h3>
+            <ul class="space-y-3 text-sm text-textMuted flex-1">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                Python (Advanced)
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                Supervised Learning
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                Scikit-Learn & Pandas
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                TensorFlow / Keras
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span> Data
+                Preprocessing
+              </li>
+            </ul>
+          </div>
+
+          <!-- Backend -->
+          <div
+            class="bg-background/80 p-7 rounded-2xl border border-white/5 hover:border-white/15 transition-colors h-full flex flex-col"
+          >
+            <div
+              class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-blue-400 mb-6"
+            >
+              <i class="fas fa-server text-xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-4">Backend & Cloud</h3>
+            <ul class="space-y-3 text-sm text-textMuted flex-1">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                FastAPI (Expert)
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                RESTful API Design
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                PostgreSQL / SQL
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                Docker & Containers
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span> AWS
+                (EC2, S3, Lambda)
+              </li>
+            </ul>
+          </div>
+
+          <!-- Frontend -->
+          <div
+            class="bg-background/80 p-7 rounded-2xl border border-white/5 hover-border-white/15 transition-colors h-full flex flex-col"
+          >
+            <div
+              class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-purple-400 mb-6"
+            >
+              <i class="fas fa-laptop-code text-xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-4">Frontend & Design</h3>
+            <ul class="space-y-3 text-sm text-textMuted flex-1">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                JavaScript (ES6+)
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                React.js
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                Tailwind CSS
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span> HTML5
+                / CSS3
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                Graphic Design (Adobe Suite)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-background">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="mb-10">
+          <h2 class="text-3xl font-display font-bold">Featured Projects</h2>
+        </div>
+
+        <div class="space-y-16">
+          <!-- Project 1 -->
+          <div
+            class="group grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-white/10 pb-10"
+          >
+            <div
+              class="md:col-span-7 relative overflow-hidden rounded-lg bg-surface aspect-video border border-white/5"
+            >
+              <!-- Placeholder for Project Image -->
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-white/5 group-hover:bg-white/10 transition-colors"
+              >
+                <i
+                  class="fas fa-chart-line text-4xl text-textMuted group-hover:text-accent transition-colors"
+                ></i>
+              </div>
+            </div>
+            <div class="md:col-span-5 flex flex-col justify-center">
+              <div
+                class="text-accent text-xs font-mono tracking-[0.4em] mb-3 uppercase"
+              >
+                01. Predictive Analytics
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3">
+                Housing Price Predictor
+              </h3>
+              <p class="text-textMuted mb-5 leading-relaxed text-base">
+                Developed a robust supervised learning model to estimate real
+                estate prices with 92% accuracy. Wrapped in a high-performance
+                <strong class="text-white">FastAPI</strong> service to serve
+                real-time predictions.
+              </p>
+              <div
+                class="flex flex-wrap gap-3 text-[0.65rem] font-mono text-gray-400 mb-5"
+              >
+                <span class="bg-surface px-2 py-1 rounded border border-white/5"
+                  >Python</span
+                >
+                <span class="bg-surface px-2 py-1 rounded border border-white/5"
+                  >FastAPI</span
+                >
+                <span class="bg-surface px-2 py-1 rounded border border-white/5"
+                  >Scikit-Learn</span
+                >
+              </div>
+              <div
+                class="p-4 bg-surface/60 border border-white/10 rounded-xl text-sm text-textMuted mb-5"
+              >
+                <p class="text-white font-semibold mb-1">Impact</p>
+                <p>
+                  Cut quote turnaround time by 35% and unlocked +18% win-rate
+                  for enterprise sales through better price guidance.
+                </p>
+              </div>
+              <div class="flex items-center gap-4">
+                <a
+                  href="#"
+                  class="text-white hover:text-accent transition-colors text-sm font-medium border-b border-transparent hover:border-accent"
+                  >View Project</a
+                >
+                <a
+                  href="#"
+                  class="text-textMuted hover:text-white transition-colors"
+                  ><i class="fab fa-github text-lg"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="group grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-white/10 pb-10"
+          >
+            <div
+              class="md:col-span-7 md:order-2 relative overflow-hidden rounded-lg bg-surface aspect-video border border-white/5"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-white/5 group-hover:bg-white/10 transition-colors"
+              >
+                <i
+                  class="fas fa-eye text-4xl text-textMuted group-hover:text-accent transition-colors"
+                ></i>
+              </div>
+            </div>
+            <div class="md:col-span-5 md:order-1 flex flex-col justify-center">
+              <div
+                class="text-accent text-xs font-mono tracking-[0.4em] mb-3 uppercase"
+              >
+                02. Computer Vision
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3">
+                Handwritten Digit Classifier
+              </h3>
+              <p class="text-textMuted mb-5 leading-relaxed text-base">
+                An end-to-end Computer Vision project using CNNs. Features a
+                React-based drawing canvas that sends image data to a backend
+                model for instant classification.
+              </p>
+              <div
+                class="flex flex-wrap gap-3 text-[0.65rem] font-mono text-gray-400 mb-5"
+              >
+                <span class="bg-surface px-2 py-1 rounded border border-white/5"
+                  >TensorFlow</span
+                >
+                <span class="bg-surface px-2 py-1 rounded border border-white/5"
+                  >React</span
+                >
+                <span class="bg-surface px-2 py-1 rounded border border-white/5"
+                  >Canvas API</span
+                >
+              </div>
+              <div
+                class="p-4 bg-surface/60 border border-white/10 rounded-xl text-sm text-textMuted mb-5"
+              >
+                <p class="text-white font-semibold mb-1">Impact</p>
+                <p>
+                  Improved QA accuracy to 98.6% and reduced support tickets by
+                  automating document triage for ops teams.
+                </p>
+              </div>
+              <div class="flex items-center gap-4">
+                <a
+                  href="#"
+                  class="text-white hover:text-accent transition-colors text-sm font-medium border-b border-transparent hover:border-accent"
+                  >View Project</a
+                >
+                <a
+                  href="#"
+                  class="text-textMuted hover:text-white transition-colors"
+                  ><i class="fab fa-github text-lg"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section (Full width, minimal) -->
+    <section id="contact" class="py-16 bg-surface relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="mb-12">
+          <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+            Let's work together.
+          </h2>
+          <p class="text-textMuted text-lg">
+            Open to ML Engineering & Full Stack roles.
+          </p>
+          <p class="text-sm text-textMuted mt-2">
+            Avg. response time &lt; 24 hrs • Happy to jump on recruiter screens
+            first.
+          </p>
+        </div>
+
+        <form
+          class="space-y-8"
+          onsubmit="event.preventDefault(); alert('Message sent (demo)!');"
+        >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="relative">
+              <input
+                type="text"
+                id="name"
+                placeholder=" "
+                class="block w-full px-0 py-3 bg-transparent border-b border-white/20 text-white placeholder-transparent focus:border-accent focus:ring-0 focus:outline-none transition-colors peer"
+                required
+              />
+              <label
+                for="name"
+                class="absolute left-0 -top-3.5 text-sm text-textMuted transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-textMuted peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-accent peer-focus:text-sm"
+              >
+                Your Name
+              </label>
+            </div>
+            <div class="relative">
+              <input
+                type="email"
+                id="email"
+                placeholder=" "
+                class="block w-full px-0 py-3 bg-transparent border-b border-white/20 text-white placeholder-transparent focus:border-accent focus:ring-0 focus:outline-none transition-colors peer"
+                required
+              />
+              <label
+                for="email"
+                class="absolute left-0 -top-3.5 text-sm text-textMuted transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-textMuted peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-accent peer-focus:text-sm"
+              >
+                Email Address
+              </label>
+            </div>
+          </div>
+
+          <div class="relative">
+            <textarea
+              id="message"
+              rows="4"
+              placeholder=" "
+              class="block w-full px-0 py-3 bg-transparent border-b border-white/20 text-white placeholder-transparent focus:border-accent focus:ring-0 focus:outline-none transition-colors peer resize-none"
+              required
+            ></textarea>
+            <label
+              for="message"
+              class="absolute left-0 -top-3.5 text-sm text-textMuted transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-textMuted peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-accent peer-focus:text-sm"
+            >
+              Tell me about your project
+            </label>
+          </div>
+
+          <div class="pt-6">
+            <button
+              type="submit"
+              class="group flex items-center gap-3 text-lg font-medium text-white hover:text-accent transition-colors"
+            >
+              Send Message
+              <span
+                class="group-hover:translate-x-2 transition-transform duration-300"
+              >
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </button>
+          </div>
+        </form>
+
+        <div
+          class="mt-14 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <div class="text-textMuted text-sm">
+            © 2024 Abhishek Ghunawat. All Rights Reserved.
+          </div>
+          <div class="flex gap-6">
+            <a
+              href="#"
+              class="text-textMuted hover:text-white transition-colors"
+              ><i class="fab fa-github text-xl"></i
+            ></a>
+            <a
+              href="#"
+              class="text-textMuted hover:text-white transition-colors"
+              ><i class="fab fa-linkedin text-xl"></i
+            ></a>
+            <a
+              href="#"
+              class="text-textMuted hover:text-white transition-colors"
+              ><i class="fab fa-twitter text-xl"></i
+            ></a>
+            <a
+              href="mailto:email@example.com"
+              class="text-textMuted hover:text-white transition-colors"
+              ><i class="fas fa-envelope text-xl"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simple Script -->
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobile-menu");
+        if (menu.classList.contains("hidden")) {
+          menu.classList.remove("hidden");
+        } else {
+          menu.classList.add("hidden");
+        }
+      }
+    </script>
+  </body>
+</html>
