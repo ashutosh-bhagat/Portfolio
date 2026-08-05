@@ -61,7 +61,7 @@ export default function Blog() {
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-sm text-textMuted leading-relaxed text-justify">
+                <p className="text-sm text-textMuted leading-relaxed text-left">
                   {post.excerpt}
                 </p>
 

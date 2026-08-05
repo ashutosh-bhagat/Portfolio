@@ -139,7 +139,7 @@ export default function Projects() {
               </div>
 
               {/* Content */}
-              <div className="flex flex-col flex-1 p-5 gap-3">
+              <div className="flex flex-col flex-1 p-4 sm:p-5 gap-2.5 sm:gap-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono text-textMuted uppercase tracking-widest">
                     {project.type}
@@ -149,19 +149,21 @@ export default function Projects() {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-white">
+                <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
                   {project.title}
                 </h3>
 
-                <p className="text-sm text-textMuted leading-relaxed flex-1 text-justify">
+                <p className="text-xs sm:text-sm text-textMuted leading-relaxed flex-1 text-left line-clamp-2 sm:line-clamp-none">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  {project.tags.map((tag, tagIdx) => (
                     <span
                       key={tag}
-                      className="text-[10px] font-mono text-gray-400 bg-background px-2.5 py-1 rounded border border-white/5"
+                      className={`text-[10px] font-mono text-gray-400 bg-background px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-white/5 ${
+                        tagIdx >= 3 ? "hidden sm:inline-block" : ""
+                      }`}
                     >
                       {tag}
                     </span>

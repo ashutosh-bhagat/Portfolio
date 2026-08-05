@@ -51,7 +51,7 @@ export default function Contact() {
             Let's work together.
           </h2>
           <p className="text-textMuted text-lg">
-            Open to ML Engineering & Frontend Developer roles.
+            Open to Data Engineering & Machine Learning roles.
           </p>
           <p className="text-sm text-textMuted mt-2">
             Avg. response time &lt; 24 hrs • Happy to jump on recruiter screens

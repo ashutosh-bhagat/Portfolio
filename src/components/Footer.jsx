@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <div className="mt-14 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
       <div className="text-textMuted text-sm">
-        © 2025 Ashutosh Bhagat. All Rights Reserved.
+        © 2026 Ashutosh Bhagat. All Rights Reserved.
       </div>
       <div className="flex gap-6">
         <a
