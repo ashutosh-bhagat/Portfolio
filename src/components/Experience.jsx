@@ -6,12 +6,17 @@ export default function Experience() {
       company: "OutriX",
       period: "Jul 2025 – Aug 2025",
       location: "Virtual",
-      type: "Internship",
+
       points: [
         "Learnt and applied core data analytics concepts hands-on during the internship.",
         "Built an E-commerce Data Analytics project using Python, performing end-to-end analysis on real sales data.",
       ],
-      skills: ["Python", "Data Analytics", "Pandas", "Sales Data Analysis", "EDA"],
+      skills: [
+        "Python",
+        "Data Analytics",
+        "Sales Data Analysis",
+        "EDA",
+      ],
     },
   ];
 
@@ -23,7 +28,9 @@ export default function Experience() {
             <p className="text-accent text-xs font-mono tracking-[0.3em] uppercase mb-1">
               Work History
             </p>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-display font-bold">Experience</h2>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-display font-bold">
+              Experience
+            </h2>
           </div>
         </div>
 
@@ -42,10 +49,9 @@ export default function Experience() {
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
-                      <h3 className="text-sm font-bold text-white">{exp.role}</h3>
-                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20 shrink-0">
-                        {exp.type}
-                      </span>
+                      <h3 className="text-sm font-bold text-white">
+                        {exp.role}
+                      </h3>
                     </div>
                     <p className="text-[10px] text-textMuted font-mono">
                       {exp.company} · {exp.location}
@@ -61,7 +67,9 @@ export default function Experience() {
                   {exp.points.map((pt, idx) => (
                     <li key={idx} className="flex items-start gap-1.5">
                       <i className="fas fa-chevron-right text-[8px] text-accent mt-1 shrink-0" />
-                      <span className="text-[10px] text-textMuted leading-relaxed line-clamp-2">{pt}</span>
+                      <span className="text-[10px] text-textMuted leading-relaxed line-clamp-2">
+                        {pt}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -83,12 +91,7 @@ export default function Experience() {
               <div className="hidden md:block p-5 lg:p-6">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                   <div>
-                    <h3 className="text-lg font-bold text-white flex items-center gap-2.5">
-                      {exp.role}
-                      <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20">
-                        {exp.type}
-                      </span>
-                    </h3>
+                    <h3 className="text-lg font-bold text-white">{exp.role}</h3>
                     <p className="text-xs text-textMuted font-mono mt-0.5">
                       {exp.company} • {exp.location}
                     </p>

@@ -83,13 +83,13 @@ export default function About() {
                   </div>
                   <div>
                     <h4 className="text-white text-xs sm:text-sm font-bold leading-snug">
-                      Code Unnati Advanced Program
+                      Code Unnati Advanced and Foundation Program
                     </h4>
                     <p className="text-[11px] text-purple-400 font-mono mt-0.5">
-                      SAP Edunet
+                      SAP x Edunet Foundation Program
                     </p>
                     <p className="text-[11px] text-textMuted mt-0.5 leading-tight">
-                      Hands-on Machine Learning & model deployment.
+                      Hands-on Machine Learning & model deployment with Data Analytics foundation.
                     </p>
                   </div>
                 </div>
