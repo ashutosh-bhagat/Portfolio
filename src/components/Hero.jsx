@@ -37,13 +37,13 @@ export default function Hero() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base md:text-lg text-textMuted leading-relaxed mb-8 max-w-xl">
-              Machine Learning Engineer & Frontend Developer.
+            <p className="text-base md:text-lg text-textMuted/90 leading-relaxed mb-8 max-w-2xl">
+              Aspiring <strong className="text-white font-semibold">Data Engineer</strong> &{" "}
+              <strong className="text-white font-semibold">ML Developer</strong> crafting data-driven solutions.
               <br className="hidden md:block" />
-              Specializing in{" "}
-              <strong className="text-white">Supervised Learning</strong> models
-              and building interactive web interfaces with{" "}
-              <strong className="text-white">React</strong>.
+              Specializing in <strong className="text-white font-semibold">SQL, ETL Pipelines</strong>,{" "}
+              <strong className="text-white font-semibold">Data Modeling</strong>, and{" "}
+              <strong className="text-white font-semibold">ML/ NLP</strong>.
             </p>
 
             {/* CTA Buttons & Social Links */}

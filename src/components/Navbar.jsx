@@ -17,19 +17,26 @@ export default function Navbar() {
               href="#"
               className="font-display font-bold text-lg tracking-tight text-white hover:text-accent transition-colors flex items-center gap-2"
             >
-              {/* <i className="fas fa-terminal text-accent text-sm"></i> */}
-              <span>ashutosh<span className="text-accent">.</span></span>
+              <span>
+                ashutosh<span className="text-accent">.</span>
+              </span>
             </a>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
-            <div className="flex items-center space-x-10">
+            <div className="flex items-center space-x-8">
               <a
                 href="#about"
                 className="text-sm font-medium text-textMuted hover:text-white transition-colors"
               >
                 About
+              </a>
+              <a
+                href="#experience"
+                className="text-sm font-medium text-textMuted hover:text-white transition-colors"
+              >
+                Experience
               </a>
               <a
                 href="#stack"
@@ -85,6 +92,13 @@ export default function Navbar() {
             className="block px-3 py-2 text-base font-medium text-textMuted hover:text-white"
           >
             About
+          </a>
+          <a
+            href="#experience"
+            onClick={toggleMenu}
+            className="block px-3 py-2 text-base font-medium text-textMuted hover:text-white"
+          >
+            Experience
           </a>
           <a
             href="#stack"

@@ -2,55 +2,108 @@ const projects = [
   {
     id: 1,
     num: "01",
-    type: "AI / Full-Stack · Team Project",
-    title: "AyurFit",
+    type: "Data Engineering",
+    title: "SQL Data Warehouse for Sales Analytics",
     description:
-      "Built the ML backend for an AI wellness platform that maps patient symptoms to Ayurvedic prescriptions. Used Sentence Transformers to embed symptom text, then a LinearSVC for disease classification and a Decision Tree for herbal recommendations.",
-    image: "./project-img/ayurfit-demo.png",
-    icon: "fas fa-leaf",
-    tags: ["Sentence Transformers", "FastAPI", "scikit-learn", "HuggingFace"],
-    github: "https://github.com/ashutosh-bhagat/AyurFit--Holistic_Wellness",
-    live: "https://ayurfit.ashutoshbhagat.in/",
+      "Designed a SQL-based data warehouse by ingesting CSV data through Bronze, Silver, and Gold layers using ETL processes, Star Schema dimensional modeling, and Medallion Architecture for analytics readiness.",
+    image: null,
+    icon: "fas fa-database",
+    tags: [
+      "SQL",
+      "ETL",
+      "Data Warehousing",
+      "Star Schema",
+      "Medallion Architecture",
+    ],
+    github: "https://github.com/ashutosh-bhagat/SQL-Datawarehouse",
+    live: null,
   },
   {
     id: 2,
     num: "02",
-    type: "AI / NLP",
-    title: "News_Catcher",
+    type: "AI / Full-Stack · Team Project",
+    title: "AyurFit — Ayurvedic Healthcare Assistant",
     description:
-      "An AI-powered news intelligence system that uses Sentence Transformers to understand the semantic meaning of user input and retrieve contextually similar past news articles. Implements vector similarity search using FAISS for efficient large-scale retrieval.",
+      "Built the ML backend for an AI wellness platform mapping patient symptoms to Ayurvedic diagnoses. Applied Sentence Transformers (all-MiniLM-L6-v2) for symptom text embeddings into a two-tier pipeline — LinearSVC for disease prediction and Decision Trees for herbal remedies.",
+    image: "./project-img/ayurfit-demo.png",
+    icon: "fas fa-leaf",
+    tags: [
+      "Machine Learning",
+      "Sentence Transformers",
+      "FastAPI",
+      "scikit-learn",
+      "HuggingFace",
+    ],
+    github: "https://github.com/ashutosh-bhagat/AyurFit--Holistic_Wellness",
+    live: "https://ayurfit.ashutoshbhagat.in/",
+  },
+  // {
+  //   id: 3,
+  //   num: "03",
+  //   type: "Supervised ML",
+  //   title: "Mark’s Prediction — Student Grade Predictor",
+  //   description:
+  //     "Developed a Linear Regression model to predict student midterm scores, sourcing data from Kaggle, performing exploratory data analysis (EDA) using Pandas and NumPy, and deploying an interactive web interface via Streamlit.",
+  //   image: "./project-img/grade-prediction.png",
+  //   icon: "fas fa-graduation-cap",
+  //   tags: [
+  //     "Python",
+  //     "Supervised ML",
+  //     "Linear Regression",
+  //     "Pandas",
+  //     "NumPy",
+  //     "Streamlit",
+  //   ],
+  //   github: "https://github.com/ashutosh-bhagat/Grade-Prediction",
+  //   live: "https://mid-grade-prediction.streamlit.app/",
+  // },
+  {
+    id: 3,
+    num: "03",
+    type: "Data Analytics & Viz",
+    title: "DataLens — Govt. Data Visualization",
+    description:
+      "Built interactive visualizations using Matplotlib, Seaborn, and Plotly across Jupyter Notebooks with Panel to analyze and present complex government data trends through a dynamic interactive dashboard.",
+    image: "./project-img/news-catcher.png",
+    icon: "fas fa-chart-pie",
+    tags: [
+      "Python",
+      "Matplotlib",
+      "Seaborn",
+      "Plotly",
+      "Pandas",
+      "Panel",
+      "Jupyter",
+    ],
+    github: "https://github.com/ashutosh-bhagat",
+    live: null,
+  },
+  {
+    id: 4,
+    num: "04",
+    type: "AI / NLP",
+    title: "News-Catcher",
+    description:
+      "An AI-powered news intelligence system that uses Sentence Transformers to understand the semantic meaning of user input and retrieve contextually similar past news articles using FAISS vector similarity search.",
     image: "./project-img/news-catcher.png",
     icon: "fas fa-robot",
     tags: ["NLP", "Sentence Transformers", "FAISS", "Streamlit"],
     github: "https://github.com/ashutosh-bhagat/News-Catcher",
     live: null,
   },
-  {
-    id: 3,
-    num: "03",
-    type: "Web App",
-    title: "Clipy_Clipboard",
-    description:
-      "A secure online clipboard for sharing text and files instantly through unique codes. Built for fast, cross-device transfer with temporary, privacy-focused access.",
-    image: "./project-img/clipy-clipboard.png",
-    icon: "fas fa-clipboard",
-    tags: ["Python", "FastAPI", "HTML5 & CSS3"],
-    github: "https://github.com/ashutosh-bhagat/Clipy_Clipboard",
-    live: "https://clipy-clipboard.vercel.app/",
-  },
-  {
-    id: 4,
-    num: "04",
-    type: "Machine Learning",
-    title: "Student_Performance_Predictor",
-    description:
-      "Forecasts student midterm grades based on behavioral and academic input factors using supervised learning and a linear regression model.",
-    image: "./project-img/grade-prediction.png",
-    icon: "fas fa-graduation-cap",
-    tags: ["Python", "Scikit-Learn", "Streamlit"],
-    github: "https://github.com/ashutosh-bhagat/Grade-Prediction",
-    live: "https://mid-grade-prediction.streamlit.app/",
-  },
+  // {
+  //   id: 6,
+  //   num: "06",
+  //   type: "Web App",
+  //   title: "Clipy-Clipboard",
+  //   description:
+  //     "A secure online clipboard for sharing text and files instantly through unique codes. Built for fast, cross-device transfer with temporary, privacy-focused access.",
+  //   image: "./project-img/clipy-clipboard.png",
+  //   icon: "fas fa-clipboard",
+  //   tags: ["Python", "FastAPI", "HTML5 & CSS3"],
+  //   github: "https://github.com/ashutosh-bhagat/Clipy_Clipboard",
+  //   live: "https://clipy-clipboard.vercel.app/",
+  // },
 ];
 
 export default function Projects() {
@@ -73,14 +126,16 @@ export default function Projects() {
               {/* Image */}
               <div className="relative aspect-video bg-background flex items-center justify-center overflow-hidden">
                 <i className={`${project.icon} text-5xl text-white/10`} />
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                  onError={(e) => {
-                    e.target.style.display = "none";
-                  }}
-                />
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                    }}
+                  />
+                )}
               </div>
 
               {/* Content */}
